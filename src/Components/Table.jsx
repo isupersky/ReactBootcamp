@@ -8,7 +8,7 @@ class Table extends Component {
         return ( 
             <table className="table table-secondary m-2 ">
                 <Tablehead/>
-                <TableBody value={this.props.value}/>
+                <TableBody value={this.props.value} deleteMethod ={this.props.deleteMethod}/>
             </table>
          );
     }

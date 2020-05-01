@@ -4,25 +4,27 @@ class InputForm extends Component {
     state = {  }
     onFormSubmit =(event)=>{
         event.preventDefault();
-        console.log("onFomeSubmit called");
-        
+        console.log("onFormSubmit called");
+
         this.props.handleSubmit(this.state);                                                                                                                                                                                              
     }
-    handleChange=(event)=>{
+    handleChange= (event)=>{
         
         let input= event.target.value;
+        
         let fruit= input.split("-"); 
         console.log('handlechange', input)
-        this.setState({name :fruit[0], quantity:fruit[1]});
+
+        this.setState({name :fruit[0], quantity:parseInt(fruit[1])});
     }
     render() { 
         return ( 
-        <div>
+        <form onSubmit={this.onFormSubmit}>
 
-            <input onChange={(e) => console.log(e)} type="text" name="name" id="name"/>
+            <input onChange ={this.handleChange} type="text" name="name" id="name"/>
             <input type="submit" value="Add" />
       
-        </div>
+        </form>
          );
     }
 }
